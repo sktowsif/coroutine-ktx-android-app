@@ -20,19 +20,18 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     private val mainViewModel by viewModel<MainViewModel>()
 
-    private val userObserver = Observer<Outcome<List<User>>> {
-        when (it) {
-            is Outcome.Progress -> swipeRefresh.isRefreshing = it.loading
-            is Outcome.Failure -> toast(it.e.localizedMessage ?: "Something went wrong")
-            is Outcome.Success -> getAdapter().addUsers(it.data)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.users.observe(this, userObserver)
+        mainViewModel.users.observe(this, Observer<Outcome<List<User>>> {
+            when (it) {
+                is Outcome.Progress -> swipeRefresh.isRefreshing = it.loading
+                is Outcome.Failure -> toast(it.e.localizedMessage ?: "Something went wrong")
+                is Outcome.Success -> getAdapter().addUsers(it.data)
+            }
+        })
     }
 
     override fun onRefresh() {

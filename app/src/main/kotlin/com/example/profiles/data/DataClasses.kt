@@ -8,6 +8,12 @@ data class User(
     @SerializedName("email") val email: String
 )
 
+data class Album(
+    @SerializedName("userId") val userId: Int,
+    @SerializedName("id") val id: Int,
+    @SerializedName("title") val title: String
+)
+
 sealed class Outcome<T> {
 
     data class Progress<T>(var loading: Boolean) : Outcome<T>()

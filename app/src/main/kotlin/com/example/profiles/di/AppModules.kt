@@ -1,7 +1,7 @@
 package com.example.profiles.di
 
 import com.example.profiles.BuildConfig
-import com.example.profiles.data.UserAPI
+import com.example.profiles.data.RemoteServerAPI
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val remoteModule = module {
-    single { createWebService<UserAPI>(BuildConfig.BASE_API_URL) }
+    single { createWebService<RemoteServerAPI>(BuildConfig.BASE_API_URL) }
 }
 
 inline fun <reified T> createWebService(url: String): T {
