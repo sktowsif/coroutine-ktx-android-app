@@ -17,7 +17,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_API_URL", "\"http://142.93.206.95:3000/\""
+        buildConfigField "String", "BASE_API_URL", "\"https://jsonplaceholder.typicode.com/\""
     }
 
     buildTypes {
