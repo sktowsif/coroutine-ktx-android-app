@@ -24,7 +24,12 @@ class MainViewModel(private val userService: UserAPI) : ViewModel() {
         }
     }
 
-    fun getUsers() {
+    init {
+        fetchUsers()
+    }
+
+
+    fun fetchUsers() {
         _fetchUserData.value = true
     }
 

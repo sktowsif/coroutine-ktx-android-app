@@ -53,6 +53,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
     // For ViewModelScope
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
